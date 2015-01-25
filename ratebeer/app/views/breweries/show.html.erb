@@ -13,6 +13,17 @@
 		<% end %>
 	</p>
 </p>
+<P>
+<% if @brewery.ratings.empty?  %>
+		This beer has no ratings!
+	<% elsif @brewery.ratings.count != 1  %>
+	Has
+		<%=  @brewery.ratings.count %> ratings, average <%= @brewery.average_rating %>
+	<% else %>
+	Has
+		<%=  @brewery.ratings.count %> rating, average <%= @brewery.average_rating %>
+	<% end %>
+</p>
 <p><i>
   Established in 
   <%= @brewery.year %>

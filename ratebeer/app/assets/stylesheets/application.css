@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+.navbar{
+	height: 200px;
+	width: 50px;
+	right:10px;
+	padding: 20px;
+	font-size:15pt;
+	position:absolute;
+}
