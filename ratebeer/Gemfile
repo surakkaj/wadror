@@ -4,7 +4,16 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 gem  'bcrypt-ruby', '~> 3.1.2'
 # Use sqlite3 as the database for Active Record
+group :test do
+	gem 'factory_girl_rails', '~> 4.0'
+	gem 'capybara', '~> 2.4.4'
+	gem 'launchy'
+	gem 'rspec-its'
+	gem 'simplecov', require: false
+end
 group :development, :test do
+	
+	gem 'rspec-rails', '~> 3.0'
 	gem "better_errors"
 	gem 'sqlite3'
 	gem 'byebug'

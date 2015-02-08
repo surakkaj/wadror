@@ -1,0 +1,16 @@
+language: ruby
+
+rvm:
+- 2.0.0
+
+script:
+	- bundle exec rake db:migrate --trace
+	- RAILS_ENV=test bundle exec rake db:migrate --trace
+	- bundle exec rake db:test:prepare
+	- bundle exec rspec -fd spec/
+
+deploy:
+	provider: heroku
+	api_key: "1e509b00-960a-4420-8bcb-f46628fbd7e6"
+	app: stark-dawn-8573
+	run: "rake db:migrate"
