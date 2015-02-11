@@ -11,6 +11,8 @@ script:
 
 deploy:
 	provider: heroku
-	api_key: "1e509b00-960a-4420-8bcb-f46628fbd7e6"
+	api_key: 1e509b00-960a-4420-8bcb-f46628fbd7e6
 	app: stark-dawn-8573
+	on:
+		repo: surakkaj/wadror
 	run: "rake db:migrate"
