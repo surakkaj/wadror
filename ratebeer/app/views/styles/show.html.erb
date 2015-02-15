@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+ <h1> <strong><%= @style.style %></strong></h1>
+  <%= @style.desc %>
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Beer</th>
+      <th></th>
+      <th>Brewery</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @style.beers.each do |s| %>
+      <tr>
+        
+        <td><%= link_to s.name, s %></td>
+        <td>by</td>
+        <td><%= link_to s.brewery, s.brewery %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

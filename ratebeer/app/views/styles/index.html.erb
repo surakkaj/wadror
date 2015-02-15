@@ -1,0 +1,26 @@
+<h1>Listing Styles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Style</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @styles.each do |s| %>
+      <tr>
+        <td><%= s.style %></td>
+        <td><%= link_to 'Show', s %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>

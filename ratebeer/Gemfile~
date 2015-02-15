@@ -9,6 +9,7 @@ group :test do
 	gem 'capybara', '~> 2.4.4'
 	gem 'launchy'
 	gem 'rspec-its'
+	gem 'simplecov', require: false
 end
 group :development, :test do
 	

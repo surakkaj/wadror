@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 gem  'bcrypt-ruby', '~> 3.1.2'
+gem 	'httparty'
 # Use sqlite3 as the database for Active Record
 group :test do
 	gem 'factory_girl_rails', '~> 4.0'
@@ -10,6 +11,7 @@ group :test do
 	gem 'launchy'
 	gem 'rspec-its'
 	gem 'simplecov', require: false
+	gem 'webmock'
 end
 group :development, :test do
 	

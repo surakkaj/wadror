@@ -9,7 +9,7 @@ describe "beer" do
 	
 	it "is created when valid input" do
 		FactoryGirl.create :brewery
-
+		FactoryGirl.create :style
 		visit new_beer_path
 		fill_in('beer_name', with:'Beer')
 		click_button('Create Beer')

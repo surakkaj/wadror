@@ -18,8 +18,13 @@ FactoryGirl.define do
 		factory :beer do
 			name "anonymous"
 			brewery
+			style_id 1
+		end
+
+		factory :style do
 			style "Lager"
 		end
+
 
 
 
