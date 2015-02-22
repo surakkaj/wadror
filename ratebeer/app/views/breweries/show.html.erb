@@ -3,6 +3,11 @@
 <h2>
   <strong>Brewery of 
   <%= @brewery.name %>
+  <% if not @brewery.active %>
+  		<span class="label label-info">retired</span>
+  <% end %>
+  <%= link_to "change activity", toggle_activity_brewery_path(@brewery.id), method: :post, class: "btn btn-primary" %>
+
   </strong>
 </h2>
 <p>
@@ -15,7 +20,7 @@
 </p>
 <P>
 <% if @brewery.ratings.empty?  %>
-		This beer has no ratings!
+		This brewery has no ratings!
 	<% elsif @brewery.ratings.count != 1  %>
 	Has
 		<%=  @brewery.ratings.count %> ratings, average <%= @brewery.average_rating %>
@@ -28,7 +33,8 @@
   Established in 
   <%= @brewery.year %>
 </i></p>
-
-<%= link_to 'Edit', edit_brewery_path(@brewery) %> |
-<%= link_to 'Back', breweries_path %>
+<% if current_user %>
+<%= edit_and_destroy_buttons(@brewery) %>
+<% end %>
+<%= link_to 'Back', breweries_path, class:'btn' %>
 

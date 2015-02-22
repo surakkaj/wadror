@@ -1,6 +1,7 @@
 class BeersController < ApplicationController
   before_action :ensure_that_signed_in, except: [:show, :index]
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_that_admin, only: [:destroy, :update]
   before_action :set_breweries_and_styles_for_template, only: [:new, :edit, :create]
   def set_breweries_and_styles_for_template
     @breweries = Brewery.all
@@ -12,6 +13,7 @@ class BeersController < ApplicationController
   # GET /beers.json
   def index
     @beers = Beer.all
+    @top_beers = Beer.top 3
   end
 
   # GET /beers/1

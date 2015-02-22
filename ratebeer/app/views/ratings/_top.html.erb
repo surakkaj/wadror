@@ -1,0 +1,19 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Average</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% list.each do |ob| %>
+      <tr>
+        <td><%= link_to ob.name, ob %></td>
+        <td><%= ob.average_rating %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

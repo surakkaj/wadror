@@ -4,6 +4,10 @@ class Brewery < ActiveRecord::Base
 	validates :year, numericality: {greater_than_or_equal_to: 1042, 
 				only_integer: true}
 	validate :year_cannot_be_larger_than_current_year
+
+	scope :active, -> { where active:true }
+	scope :retired, -> { where active:[nil, false] }
+
 	has_many :beers, dependent: :destroy
 	has_many :ratings, through: :beers
 
@@ -26,6 +30,13 @@ class Brewery < ActiveRecord::Base
 		puts "established at year #{year}"
 		puts "number of beers #{beers.count}"
 	end
+
+	def self.top(n)
+
+		sorted_array = Brewery.all.sort_by{ |b| -(b.average_rating)}
+		sorted_array.take(n)
+	end
+
 	def to_s
 		return self.name 
 	end

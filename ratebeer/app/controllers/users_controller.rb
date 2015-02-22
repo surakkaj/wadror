@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    @top_users = User.top 3
   end
 
   # GET /users/1
@@ -62,6 +63,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def toggle_icing
+    user = User.find(params[:id])
+    user.update_attribute :iced, (not user.iced)
+
+    new_status = user.iced? ? "iced" : "melted"
+
+    redirect_to :back, notice:"user status changed to #{new_status}"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -70,6 +80,8 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :password, :password_confirmation)
+      params.require(:user).permit(:username, :password, :password_confirmation, :iced)
     end
+
+
 end

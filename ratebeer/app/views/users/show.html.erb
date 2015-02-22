@@ -3,6 +3,7 @@
 <p>
   <strong>Username:</strong>
   <%= @user.username %>
+  <% if @user.iced %><p class="btn btn-info btn-xs">frozen</p><% end %>
 </p>
 <p>
 	has made <%= @user.ratings.count %> ratings, with the average of <%= @user.average_rating %>
@@ -27,6 +28,10 @@
 	<% end %>
 </tbody>
 </table>
+<% if current_user.admin  %>
+	<%= link_to "change activity", toggle_icing_user_path(@user.id), method: :post, class: "btn btn-danger" %>
+
+<% end %>
 <% if @user == current_user %>
 <%= link_to 'Destroy user', @user, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Edit', edit_user_path(@user) %> |

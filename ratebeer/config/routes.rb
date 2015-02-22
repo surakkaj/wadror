@@ -1,11 +1,15 @@
 Ratebeer::Application.routes.draw do
   resources :beer_clubs
 
-  resources :users
+  resources :users  do
+    post 'toggle_icing', on: :member
+  end
 
   resources :beers
   resources :styles
-  resources :breweries
+  resources :breweries do
+    post 'toggle_activity', on: :member
+  end
   resources :ratings, only: [:index, :new, :create, :destroy]
   resource :session, only: [:new, :create, :delete]
   root 'breweries#index'
