@@ -2,7 +2,7 @@ class Beer < ActiveRecord::Base
 	include RatingAverage
 	validates :name, presence: true
 	validates :style, presence: true
-	belongs_to :brewery
+	belongs_to :brewery, touch: true
 	belongs_to :style
 	has_many :ratings, dependent: :destroy
 	has_many :users, through: :ratings

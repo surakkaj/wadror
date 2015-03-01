@@ -8,7 +8,5 @@ def to_s
 
 	def self.top(n)
 
-		sorted_array = Style.all.sort_by{ |b| -(b.average_rating)}
-		sorted_array.take(n)
 	end
 end

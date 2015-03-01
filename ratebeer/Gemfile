@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 gem  'bcrypt-ruby', '~> 3.1.2'
 gem 	'httparty'
+gem 'jquery-turbolinks'
+gem 'rack-mini-profiler'
+gem 'omniauth-github'
 # Use sqlite3 as the database for Active Record
 group :test do
 	gem 'factory_girl_rails', '~> 4.0'
@@ -12,6 +15,8 @@ group :test do
 	gem 'rspec-its'
 	gem 'simplecov', require: false
 	gem 'webmock'
+	gem 'selenium-webdriver'
+	gem 'database_cleaner'
 end
 gem 'bootstrap-sass'
 group :development do
